@@ -3,6 +3,10 @@ function init() {
         el:"#app",
 
         data:{
+            'myText': "",
+            'newMessage':{status: 'sent'},
+            'myAnswer': "",
+            'newAnswer':{text:'ok', status:'received'},
             'activeContact': false,
             'contactsArray': [
                 {
@@ -94,6 +98,15 @@ function init() {
         methods:{
             getContact: function (index) {
                 this.activeContact=this.contactsArray[index];
+            },
+            sendText: function () {
+                this.newMessage["text"] = this.myText;
+                this.activeContact.messages.push(this.newMessage);
+                this.myText="";
+                setTimeout(this.answer, 1000);
+            },
+            answer: function () {
+                this.activeContact.messages.push(this.newAnswer);
             }
         },
 

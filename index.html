@@ -53,7 +53,7 @@
                     <div class="inputContainer">
                         <i class="fas fa-smile"></i>
                         <i class="fas fa-paperclip"></i>
-                        <input type="text" placeholder="Scrivi messaggio">
+                        <input type="text" placeholder="Scrivi messaggio" v-model="myText" @keyup.enter="sendText">
                         <i class="fas fa-microphone"></i>
                     </div>
                 </template>
