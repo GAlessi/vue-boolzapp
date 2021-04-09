@@ -40,8 +40,17 @@
             <div class="colConversation">
                 <template v-if="activeContact">
                     <div class="contactConversation">
-                        <img :src="'img/'+ activeContact.avatar + '.png'">
-                        <h3>{{activeContact.name}}</h3>
+                        <div>
+                            <img :src="'img/'+ activeContact.avatar + '.png'">
+                            <h3>{{activeContact.name}}</h3>
+                        </div>
+                        <div class="options">
+                            <i class="fas fa-video"></i>
+                            <i class="fas fa-phone"></i>
+                            <i class="fas fa-grip-lines-vertical"></i>
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
                     </div>
                     <div class="conversation">
                         <div v-for="message in activeContact.messages" class="msg" >

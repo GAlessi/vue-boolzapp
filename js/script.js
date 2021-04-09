@@ -3,9 +3,10 @@ function init() {
         el:"#app",
 
         data:{
+
             'myText': "",
-            'newMessage':{text:'', status:'sent'},
-            'newAnswer':{text:'ok', status:'received'},
+            'newMessage':{text:'', status:'sent', time:''},
+            'newAnswer':{text:'ok', status:'received', time:'15:30:55'},
             'activeContact': false,
             'contactsArray': [
                 {
@@ -128,12 +129,19 @@ function init() {
                 this.activeContact=this.contactsArray[index];
             },
             sendText: function () {
+                const today = new Date();
+                const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
                 this.newMessage["text"] = this.myText;
+                this.newMessage["time"] = time;
                 this.activeContact.messages.push({...this.newMessage});
                 this.myText="";
                 setTimeout(this.answer, 1000);
             },
             answer: function () {
+                const today = new Date();
+                const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                this.newAnswer["time"] = time;
                 this.activeContact.messages.push({...this.newAnswer});
             }
         },
