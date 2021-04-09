@@ -3,10 +3,10 @@ function init() {
         el:"#app",
 
         data:{
-            'contacts': [
+            'contactsArray': [
                 {
-                    name: 'Michele',
-                    avatar: '_1',
+                    name: 'Judy',
+                    avatar: 'judy',
                     visible: true,
                     messages: [
                         {
@@ -27,8 +27,8 @@ function init() {
                     ],
                 },
                 {
-                    name: 'Fabio',
-                    avatar: '_2',
+                    name: 'Jackie',
+                    avatar: 'jackie',
                     visible: true,
                     messages: [
                         {
@@ -49,8 +49,8 @@ function init() {
                     ],
                 },
                 {
-                    name: 'Samuele',
-                    avatar: '_3',
+                    name: 'Wakako',
+                    avatar: 'wakako',
                     visible: true,
                     messages: [
                         {
@@ -71,8 +71,8 @@ function init() {
                     ],
                 },
                 {
-                    name: 'Luisa',
-                    avatar: '_4',
+                    name: 'Panam',
+                    avatar: 'panam',
                     visible: true,
                     messages: [
                         {
@@ -91,7 +91,12 @@ function init() {
         },
 
         methods:{
-
+            // getName: function () {
+            //     for (let i = 0; i < this.contactsArray.length; i++) {
+            //         const contact = this.contactsArray[i];
+            //         this.avatar = contact{'avatar'};
+            //     }
+            // }
         }
     });
 }
