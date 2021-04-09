@@ -77,7 +77,9 @@
     padding: 10px;
     border-bottom: 1px solid darkgrey;
 }
-
+.colContact .contacts .contact:hover{
+    background-color: lightgrey;
+}
 .colContact .contacts .contact img{
     border-radius: 50%;
     width: 50px;
@@ -129,8 +131,6 @@
 
 .colConversation .conversation .msg span{
     border-radius: 30px;
-    padding: 15px;
-
 }
 
 .colConversation .inputContainer{
@@ -152,11 +152,24 @@ align-items: center;
 
 /* classi per vue */
 .received{
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.7);
     float: left;
+    position: relative;
 }
 
 .sent{
-    background-color: rgba(229,255,191,0.6);
+    background-color: rgba(229,255,191,0.7);
     float: right;
+}
+
+.received, .sent{
+    padding: 15px 60px 15px 15px;
+    position: relative;
+}
+
+.msg .msgTime{
+    position: absolute;
+    right: 25px;
+    bottom: 5px;
+    font-size: 10px;
 }

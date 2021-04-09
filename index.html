@@ -29,10 +29,10 @@
                         <img :src="'img/'+ contact.avatar + '.png'">
                         <div class="contactInfo">
                             <h3>{{contact.name}}</h3>
-                            <!-- <span>{{contact.messages[messages.length - 1].text}}</span> -->
+                            <span>{{contact.messages[contact.messages.length - 1].text.slice(0,25)}} </span><span v-if="contact.messages[contact.messages.length - 1].text.length > 25">...</span>
                         </div>
                         <div class="timeLastMsg">
-                            <!-- <span>time</span> -->
+                            <span>{{contact.messages[contact.messages.length -1].time.slice(0,5)}}</span>
                         </div>
                     </div>
                 </div>
@@ -47,6 +47,7 @@
                         <div v-for="message in activeContact.messages" class="msg" >
                             <span :class="(message.status == 'sent') ? 'sent' : 'received'">
                                 {{message.text}}
+                                <span class="msgTime">{{message.time.slice(0,5)}}</span>
                             </span>
                         </div>
                     </div>
