@@ -117,16 +117,18 @@
     background-image:url(../img/sfondo.png);
     flex-grow: 1;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .colConversation .conversation .msg{
-    margin: 30px 0;
     padding: 10px;
 }
 
 .colConversation .conversation .msg span{
     border-radius: 30px;
-    padding: 10px;
+    padding: 15px;
 
 }
 

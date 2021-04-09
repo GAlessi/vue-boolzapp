@@ -3,7 +3,7 @@ function init() {
         el:"#app",
 
         data:{
-            'activeContact': null,
+            'activeContact': false,
             'contactsArray': [
                 {
                     name: 'Judy',
@@ -92,8 +92,8 @@ function init() {
         },
 
         methods:{
-            getContact: function () {
-                this.activeContact=this.contactsArray[1];
+            getContact: function (index) {
+                this.activeContact=this.contactsArray[index];
             }
         },
 
