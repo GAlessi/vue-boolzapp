@@ -3,6 +3,7 @@ function init() {
         el:"#app",
 
         data:{
+            'activeContact': null,
             'contactsArray': [
                 {
                     name: 'Judy',
@@ -91,13 +92,11 @@ function init() {
         },
 
         methods:{
-            // getName: function () {
-            //     for (let i = 0; i < this.contactsArray.length; i++) {
-            //         const contact = this.contactsArray[i];
-            //         this.avatar = contact{'avatar'};
-            //     }
-            // }
-        }
+            getContact: function () {
+                this.activeContact=this.contactsArray[1];
+            }
+        },
+
     });
 }
 

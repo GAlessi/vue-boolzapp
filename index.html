@@ -25,7 +25,7 @@
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="contacts">
-                    <div v-for="contact in contactsArray" class="contact">
+                    <div v-for="contact in contactsArray" class="contact" @click="getContact">
                         <img :src="'img/'+ contact.avatar + '.png'">
                         <div class="contactInfo">
                             <h3>{{contact.name}}</h3>
@@ -36,26 +36,31 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="colConversation">
-                <div class="contactConversation">
-                    <img :src="'img/'+ contactsArray[0].avatar + '.png'">
-                    <h3>{{contactsArray[0].name}}</h3>
-                </div>
-                <div class="conversation">
-                    <div v-for="contact in contactsArray" class="msg">
-                        <!-- <span :class="(contact.messages[i].status == sent) ? 'sent' : 'received'"> -->
-                        <span>
-                            {{contact.messages[1].text}}
-                        </span>
+                <template v-if="activeContact">
+                    <div class="contactConversation">
+                        <img :src="'img/'+ activeContact.avatar + '.png'">
+                        <h3>{{activeContact.name}}</h3>
                     </div>
-                </div>
-                <div class="inputContainer">
-                    <i class="fas fa-smile"></i>
-                    <i class="fas fa-paperclip"></i>
-                    <input type="text" placeholder="Scrivi messaggio">
-                    <i class="fas fa-microphone"></i>
+                    <div class="conversation">
+                        <div v-for="message in activeContact.messages" class="msg" >
+                            <span :class="(message.status == 'sent') ? 'sent' : 'received'">
+                                {{message.text}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="inputContainer">
+                        <i class="fas fa-smile"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <input type="text" placeholder="Scrivi messaggio">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                </template>
+                <div v-else class="unselcted">
+                    <img src="img/empty.png">
+                    <h2>Mantieni il telefono connesso</h2>
+                    <span>Boolzapp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre il consumo dati collega il telefono ad una rete Wi-Fi.</span>
                 </div>
             </div>
         </div>
