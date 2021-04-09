@@ -104,6 +104,7 @@ function init() {
                 this.activeContact.messages.push(this.newMessage);
                 this.myText="";
                 setTimeout(this.answer, 1000);
+                console.log(this.activeContact.messages);
             },
             answer: function () {
                 this.activeContact.messages.push(this.newAnswer);
