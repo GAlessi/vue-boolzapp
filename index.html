@@ -45,6 +45,7 @@
                 </div>
                 <div class="conversation">
                     <div v-for="contact in contactsArray" class="msg">
+                        <!-- <span :class="(contact.messages[i].status == sent) ? 'sent' : 'received'"> -->
                         <span>
                             {{contact.messages[1].text}}
                         </span>

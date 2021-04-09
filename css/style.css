@@ -98,19 +98,22 @@
 }
 
 .colConversation .conversation{
-    background-color: red;
+    background-image:url(../img/sfondo.png);
     flex-grow: 1;
+    padding: 20px;
 }
 
 .colConversation .conversation .msg{
     margin: 30px 0;
 }
+
 .colConversation .conversation .msg span{
     background: green;
     padding: 10px;
     border-radius: 30px;
 
 }
+
 .colConversation .inputContainer{
 height: 70px;
 display: flex;
