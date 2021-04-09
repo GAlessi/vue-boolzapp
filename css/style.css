@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* sezione sx */
+.colContact{
+    width: 30%;
+    height: 100vh;
+    background-color: white;
+    border-right: 1px solid darkgrey;
+}
+
+.colContact .user, .colConversation .contactConversation{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(230,230,230);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 10px;
+}
+
+.colContact .user img, .colConversation .contactConversation img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+}
+
+.colContact .search, .colConversation .inputContainer{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(240,240,240);
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+.colContact .search{
+    position: relative;
+}
+
+.colContact .search input, .colConversation .inputContainer input{
+    width: 100%;
+    border-radius: 50px;
+    line-height: 35px;
+    border: none;
+}
+
+.colContact .search input{
+    padding-left: 50px;
+}
+
+.colContact .search i{
+    position: absolute;
+    left: 25px;
+}
+
+.colContact .contacts .contact{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid darkgrey;
+}
+
+.colContact .contacts .contact img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+}
+
+.colContact .contacts .contact .contactInfo{
+    flex-grow: 1;
+}
+
+/* sezione dx */
+.colConversation{
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.colConversation .contactConversation{
+}
+
+.colConversation .conversation{
+    background-color: red;
+    flex-grow: 1;
+}
+
+.colConversation .inputContainer{
+height: 70px;
+display: flex;
+align-items: center;
+}
+
+.colConversation .inputContainer i{
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+.colConversation .inputContainer input{
+    flex-grow: 1;
+    margin: 0 5px;
+    padding: 0 10px;
+}
