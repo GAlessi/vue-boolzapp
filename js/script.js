@@ -125,22 +125,29 @@ function init() {
         },
 
         methods:{
+
+            // Dichiara di quale contatto mostrare la chat e aggiungo il focus sul'imput nuovo messaggi0
             getContact: function (index) {
                 this.activeContact=this.contactsArray[index];
                 this.$nextTick(() => this.$refs.newMsg.focus());
             },
 
+            //In caso un numero sia minore di 10 aggiunge un 0 davati per mantenere il formato a 2 cifre
             plusZero: function(timeNum) {
               if (timeNum  < 10) {
                   timeNum = '0' + timeNum;
               }
               return timeNum
             },
+
+            // Prende le informazioni riguardo l'orario e le formatto
             getTime: function () {
                 const today = new Date();
                 const time = this.plusZero(today.getHours()) + ":" + this.plusZero(today.getMinutes()) + ":" + this.plusZero(today.getSeconds());
                 return time;
             },
+
+            // Prende le informazioni riguardo un nuovo messaggio e le inserisce in un oggetto che aggiunge all'array
             sendText: function () {
                 const time = this.getTime();
                 this.newMessage["text"] = this.myText;
@@ -149,11 +156,15 @@ function init() {
                 this.myText="";
                 setTimeout(this.answer, 1000);
             },
+
+            // Pusha una risposta automatica nell'array
             answer: function () {
                 const time = this.getTime();
                 this.newAnswer["time"] = time;
                 this.activeContact.messages.push({...this.newAnswer});
             },
+
+            // filtra l'array di partenza basandosi sulle lettere inserite nella barra di riscerca
             filteredContactsArray: function () {
                return this.contactsArray.filter(contact => {
                    return contact.name.toUpperCase().includes(this.searchedName.toUpperCase());

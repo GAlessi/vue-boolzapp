@@ -3,24 +3,34 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Boolzapp</title>
+        <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+        <!-- Vue -->
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <title></title>
+        <!-- My Style -->
         <link rel="stylesheet" href="css/style.css">
+        <!-- My Script -->
         <script src="js/script.js" charset="utf-8"></script>
     </head>
     <body>
+        <!-- Div contenitore che monta Vue -->
         <div id="app" class="container">
-            <div class="colContact">
+
+            <!-- Colonna con User e Contatti -->
+            <div class="colContacts">
+                <!-- Immagine User -->
                 <div class="user">
                     <img src="img/johnny.png">
                 </div>
+                <!-- barra di ricerca contatti -->
                 <div class="search">
                     <input type="text" placeholder="cerca o inizia una nuova chat" v-model="searchedName">
                     <i class="fas fa-search"></i>
                 </div>
-                <div class="contacts">
-                    <div v-for="(contact, ind) in filteredContactsArray()" class="contact" @click="getContact(ind)">
+                <!-- Lista contatti -->
+                <ul class="contacts">
+                    <li v-for="(contact, ind) in filteredContactsArray()" class="contact" @click="getContact(ind)">
                         <img :src="'img/'+ contact.avatar + '.png'">
                         <div class="contactInfo">
                             <h3>{{contact.name}}</h3>
@@ -30,10 +40,14 @@
                         <div class="timeLastMsg">
                             <span>{{contact.messages[contact.messages.length -1].time.slice(0,5)}}</span>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
+
+            <!-- Colonna con Chat -->
             <div class="colConversation">
+
+                <!-- Contenuto chat mostrato una volta selezionato un contatto -->
                 <template v-if="activeContact">
                     <div class="contactConversation">
                         <div>
@@ -48,6 +62,8 @@
                             <i class="fas fa-ellipsis-h"></i>
                         </div>
                     </div>
+
+                    <!-- Box con chat effettiva -->
                     <div class="conversation">
                         <div v-for="message in activeContact.messages" class="msg" >
                             <span :class="(message.status == 'sent') ? 'sent' : 'received'">
@@ -57,6 +73,8 @@
                             </span>
                         </div>
                     </div>
+
+                    <!-- Input nuovo messaggi -->
                     <div class="inputContainer">
                         <i class="fas fa-smile"></i>
                         <i class="fas fa-paperclip"></i>
@@ -64,6 +82,8 @@
                         <i class="fas fa-microphone"></i>
                     </div>
                 </template>
+
+                <!-- Contenuto mostrato in caso non sia selezionato nessun contatto -->
                 <div v-else class="unselcted">
                     <img src="img/empty.png">
                     <h2>Mantieni il telefono connesso</h2>
