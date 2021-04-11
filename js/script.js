@@ -128,16 +128,15 @@ function init() {
             getContact: function (index) {
                 this.activeContact=this.contactsArray[index];
             },
-            
+            plusZero: function(timeNum) {
+              if (timeNum < 10) {
+                  timeNum = '0' + timeNum;
+              }
+              return timeNum
+            },
             sendText: function () {
                 const today = new Date();
-                let time = "";
-                if (today.getMinutes() < 10) {
-                    time = today.getHours() + ":" + 0 + today.getMinutes() + ":" + today.getSeconds();
-                }else {
-                    time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                };
-
+                const time = this.plusZero(today.getHours()) + ":" + this.plusZero(today.getMinutes()) + ":" + this.plusZero(today.getSeconds());
                 this.newMessage["text"] = this.myText;
                 this.newMessage["time"] = time;
                 this.activeContact.messages.push({...this.newMessage});
@@ -146,7 +145,7 @@ function init() {
             },
             answer: function () {
                 const today = new Date();
-                const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                const time = this.plusZero(today.getHours()) + ":" + this.plusZero(today.getMinutes()) + ":" + this.plusZero(today.getSeconds());
                 this.newAnswer["time"] = time;
                 this.activeContact.messages.push({...this.newAnswer});
             },
