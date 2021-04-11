@@ -24,7 +24,8 @@
                         <img :src="'img/'+ contact.avatar + '.png'">
                         <div class="contactInfo">
                             <h3>{{contact.name}}</h3>
-                            <span>{{contact.messages[contact.messages.length - 1].text.slice(0,25)}} </span><span v-if="contact.messages[contact.messages.length - 1].text.length > 25">...</span>
+                            <span>{{contact.messages[contact.messages.length - 1].text.slice(0,25)}} </span>
+                            <span v-if="contact.messages[contact.messages.length - 1].text.length > 25">...</span>
                         </div>
                         <div class="timeLastMsg">
                             <span>{{contact.messages[contact.messages.length -1].time.slice(0,5)}}</span>
@@ -59,7 +60,7 @@
                     <div class="inputContainer">
                         <i class="fas fa-smile"></i>
                         <i class="fas fa-paperclip"></i>
-                        <input type="text" placeholder="Scrivi messaggio" v-model="myText" @keyup.enter="sendText">
+                        <input type="text" placeholder="Scrivi messaggio" v-model="myText" @keyup.enter="sendText" ref="newMsg">
                         <i class="fas fa-microphone"></i>
                     </div>
                 </template>

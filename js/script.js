@@ -127,16 +127,22 @@ function init() {
         methods:{
             getContact: function (index) {
                 this.activeContact=this.contactsArray[index];
+                this.$nextTick(() => this.$refs.newMsg.focus());
             },
+
             plusZero: function(timeNum) {
-              if (timeNum < 10) {
+              if (timeNum  < 10) {
                   timeNum = '0' + timeNum;
               }
               return timeNum
             },
-            sendText: function () {
+            getTime: function () {
                 const today = new Date();
                 const time = this.plusZero(today.getHours()) + ":" + this.plusZero(today.getMinutes()) + ":" + this.plusZero(today.getSeconds());
+                return time;
+            },
+            sendText: function () {
+                const time = this.getTime();
                 this.newMessage["text"] = this.myText;
                 this.newMessage["time"] = time;
                 this.activeContact.messages.push({...this.newMessage});
@@ -144,8 +150,7 @@ function init() {
                 setTimeout(this.answer, 1000);
             },
             answer: function () {
-                const today = new Date();
-                const time = this.plusZero(today.getHours()) + ":" + this.plusZero(today.getMinutes()) + ":" + this.plusZero(today.getSeconds());
+                const time = this.getTime();
                 this.newAnswer["time"] = time;
                 this.activeContact.messages.push({...this.newAnswer});
             },
