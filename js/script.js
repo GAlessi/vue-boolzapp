@@ -3,7 +3,7 @@ function init() {
         el:"#app",
 
         data:{
-
+            'searchedName': "",
             'myText': "",
             'newMessage':{text:'', status:'sent', time:''},
             'newAnswer':{text:'ok', status:'received', time:'15:30:55'},
@@ -143,10 +143,15 @@ function init() {
                 const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
                 this.newAnswer["time"] = time;
                 this.activeContact.messages.push({...this.newAnswer});
-            }
-        },
+            },
+            filteredContactsArray: function () {
+               return this.contactsArray.filter(contact => {
+                   return contact.name.includes(this.searchedName);
+               });
+           },
 
+        }
     });
 }
 
-$(init);
+document.addEventListener('DOMContentLoaded', init);

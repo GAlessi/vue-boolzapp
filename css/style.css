@@ -12,6 +12,10 @@
     justify-content: center;
 }
 
+input:focus{
+    outline: none;
+}
+
 
 /* sezione sx */
 .colContact{
@@ -163,7 +167,7 @@ align-items: center;
 .colConversation .inputContainer input{
     flex-grow: 1;
     margin: 0 5px;
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 /* classi per vue */
@@ -188,4 +192,11 @@ align-items: center;
     right: 25px;
     bottom: 5px;
     font-size: 12px;
+}
+.down{
+    position: absolute;
+    right: 12px;
+    bottom: 15px;
+    font-size: 20px;
+    cursor: pointer;
 }
