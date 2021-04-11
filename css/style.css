@@ -158,8 +158,45 @@ input:focus{
     padding: 10px;
 }
 
-.colConversation .conversation .msg span{
+.colConversation .conversation .msg>span{
     border-radius: 30px;
+}
+
+/* Menù per eliminazione messaggio */
+.colConversation .msg .msgTime{
+    position: absolute;
+    right: 25px;
+    bottom: 5px;
+    font-size: 12px;
+}
+
+.colConversation .msg .down{
+    position: absolute;
+    right: 12px;
+    bottom: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.colConversation .msg .down .menu{
+    display: none;
+    position: absolute;
+    z-index: 900;
+    top: 20px;
+    right: 0;
+    width: 180px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.colConversation .menu >span{
+    display: inline-block;
+    width: 100%;
+    padding: 20px;
+}
+
+.colConversation .menu >span:hover{
+    background-color: lightgrey;
 }
 
 /* Barra di input della chat */
@@ -197,16 +234,6 @@ align-items: center;
     position: relative;
 }
 
-.msg .msgTime{
-    position: absolute;
-    right: 25px;
-    bottom: 5px;
-    font-size: 12px;
-}
-.down{
-    position: absolute;
-    right: 12px;
-    bottom: 15px;
-    font-size: 20px;
-    cursor: pointer;
+.colConversation .msg .down .menu.show{
+    display: block;
 }

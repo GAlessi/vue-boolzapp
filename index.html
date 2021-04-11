@@ -21,7 +21,7 @@
             <div class="colContacts">
                 <!-- Immagine User -->
                 <div class="user">
-                    <img src="img/johnny.png">
+                    <img src="img/johnny.png" alt="immagine di Johnny Silverhand">
                 </div>
                 <!-- barra di ricerca contatti -->
                 <div class="search">
@@ -31,7 +31,7 @@
                 <!-- Lista contatti -->
                 <ul class="contacts">
                     <li v-for="(contact, ind) in filteredContactsArray()" class="contact" @click="getContact(ind)">
-                        <img :src="'img/'+ contact.avatar + '.png'">
+                        <img :src="'img/'+ contact.avatar + '.png'" :alt="'Immagine di ' + contact.name">
                         <div class="contactInfo">
                             <h3>{{contact.name}}</h3>
                             <span>{{contact.messages[contact.messages.length - 1].text.slice(0,25)}} </span>
@@ -51,7 +51,7 @@
                 <template v-if="activeContact">
                     <div class="contactConversation">
                         <div>
-                            <img :src="'img/'+ activeContact.avatar + '.png'">
+                            <img :src="'img/'+ activeContact.avatar + '.png'" :alt="'Immagine di ' + activeContact.name">
                             <h3>{{activeContact.name}}</h3>
                         </div>
                         <div class="options">
@@ -68,8 +68,13 @@
                         <div v-for="message in activeContact.messages" class="msg" >
                             <span :class="(message.status == 'sent') ? 'sent' : 'received'">
                                 {{message.text}}
-                                <span class="msgTime">{{message.time.slice(0,5)}}
-                                </span><i class="fas fa-chevron-down down"></i>
+                                <span class="msgTime">{{message.time.slice(0,5)}}</span>
+                                <i class="fas fa-chevron-down down" @click="showMenu(message)">
+                                    <div :class="(message.menu) ? 'show ': ''" class="menu">
+                                        <span>Message Info</span>
+                                        <span>Delete message</span>
+                                    </div>
+                                </i>
                             </span>
                         </div>
                     </div>
@@ -85,7 +90,7 @@
 
                 <!-- Contenuto mostrato in caso non sia selezionato nessun contatto -->
                 <div v-else class="unselcted">
-                    <img src="img/empty.png">
+                    <img src="img/empty.png" alt="sfondo whatsapp">
                     <h2>Mantieni il telefono connesso</h2>
                     <span>Boolzapp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre il consumo dati collega il telefono ad una rete Wi-Fi.</span>
                 </div>
