@@ -128,9 +128,15 @@ function init() {
             getContact: function (index) {
                 this.activeContact=this.contactsArray[index];
             },
+            
             sendText: function () {
                 const today = new Date();
-                const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                let time = "";
+                if (today.getMinutes() < 10) {
+                    time = today.getHours() + ":" + 0 + today.getMinutes() + ":" + today.getSeconds();
+                }else {
+                    time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                };
 
                 this.newMessage["text"] = this.myText;
                 this.newMessage["time"] = time;
@@ -146,7 +152,7 @@ function init() {
             },
             filteredContactsArray: function () {
                return this.contactsArray.filter(contact => {
-                   return contact.name.includes(this.searchedName);
+                   return contact.name.toUpperCase().includes(this.searchedName.toUpperCase());
                });
            },
 
