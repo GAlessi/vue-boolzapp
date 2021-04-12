@@ -5,8 +5,8 @@ function init() {
         data:{
             'searchedName': "",
             'myText': "",
-            'newMessage':{text:'', status:'sent', time:''},
-            'newAnswer':{text:'ok', status:'received', time:'15:30:55'},
+            'newMessage':{text:'', status:'sent', time:'', menu:false},
+            'newAnswer':{text:'ok', status:'received', time:'', menu:false},
             'activeContact': false,
             'contactsArray': [
                 {
@@ -43,91 +43,99 @@ function init() {
                             menu: false
                         }
                     ],
-                }
-            //     {
-            //         name: 'Jackie',
-            //         avatar: 'jackie',
-            //         visible: true,
-            //         messages: [
-            //             {
-            //                 date: '20/03/2020',
-            //                 time: '16:30:00',
-            //                 text: 'Ciao choom, come stai?',
-            //                 status: 'sent'
-            //             },
-            //             {
-            //                 date: '20/03/2020',
-            //                 time: '16:30:55',
-            //                 text: "Bene grazie! Stasera ci vediamo all'Alterlife?",
-            //                 status: 'received'
-            //             },
-            //             {
-            //                 date: '20/03/2020',
-            //                 time: '16:35:00',
-            //                 text: 'Mi piacerebbe ma devo vedere Judy',
-            //                 status: 'sent'
-            //             }
-            //         ],
-            //     },
-            //     {
-            //         name: 'Wakako',
-            //         avatar: 'wakako',
-            //         visible: true,
-            //         messages: [
-            //             {
-            //                 date: '28/03/2020',
-            //                 time: '10:10:40',
-            //                 text: 'Devo fare sparire il mio ottavo marito',
-            //                 status: 'received'
-            //             },
-            //             {
-            //                 date: '28/03/2020',
-            //                 time: '10:20:10',
-            //                 text: 'Sicura di non aver sbagliato chat?',
-            //                 status: 'sent'
-            //             },
-            //             {
-            //                 date: '28/03/2020',
-            //                 time: '16:15:22',
-            //                 text: 'Ah',
-            //                 status: 'received'
-            //             },
-            //             {
-            //                 date: '28/03/2020',
-            //                 time: '16:15:22',
-            //                 text: 'dimentica tutto, V',
-            //                 status: 'received'
-            //             },
-            //             {
-            //                 date: '28/03/2020',
-            //                 time: '16:15:22',
-            //                 text: 'sul serio V, dimentica tutto',
-            //                 status: 'received'
-            //             }
-            //         ]
-            //     },
-            //     {
-            //         name: 'Panam',
-            //         avatar: 'panam',
-            //         visible: true,
-            //         messages: [
-            //             {
-            //                 date: '10/01/2020',
-            //                 time: '15:30:55',
-            //                 text: 'Lo sai che ha aperto una nuova pizzeria?',
-            //                 status: 'sent'
-            //             },
-            //             {
-            //                 date: '10/01/2020',
-            //                 time: '15:50:00',
-            //                 text: 'Si, ma preferirei andare al cinema',
-            //                 status: 'received'
-            //             }
-            //         ],
-            //     },
+                },
+                {
+                    name: 'Jackie',
+                    avatar: 'jackie',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '20/03/2020',
+                            time: '16:30:00',
+                            text: 'Ciao choom, come stai?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '20/03/2020',
+                            time: '16:30:55',
+                            text: "Bene grazie! Stasera ci vediamo all'Alterlife?",
+                            status: 'received'
+                        },
+                        {
+                            date: '20/03/2020',
+                            time: '16:35:00',
+                            text: 'Mi piacerebbe ma devo vedere Judy',
+                            status: 'sent'
+                        }
+                    ],
+                },
+                {
+                    name: 'Wakako',
+                    avatar: 'wakako',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '28/03/2020',
+                            time: '10:10:40',
+                            text: 'Devo fare sparire il mio ottavo marito',
+                            status: 'received'
+                        },
+                        {
+                            date: '28/03/2020',
+                            time: '10:20:10',
+                            text: 'Sicura di non aver sbagliato chat?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '28/03/2020',
+                            time: '16:15:22',
+                            text: 'Ah',
+                            status: 'received'
+                        },
+                        {
+                            date: '28/03/2020',
+                            time: '16:15:22',
+                            text: 'dimentica tutto, V',
+                            status: 'received'
+                        },
+                        {
+                            date: '28/03/2020',
+                            time: '16:15:22',
+                            text: 'sul serio V, dimentica tutto',
+                            status: 'received'
+                        }
+                    ]
+                },
+                {
+                    name: 'Panam',
+                    avatar: 'panam',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020',
+                            time: '15:30:55',
+                            text: 'Lo sai che ha aperto una nuova pizzeria?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020',
+                            time: '15:50:00',
+                            text: 'Si, ma preferirei andare al cinema',
+                            status: 'received'
+                        }
+                    ],
+                },
             ]
         },
-
+        mounted: function () {
+                    for (var i = 0; i < this.contactsArray.length; i++) {
+                        const contact=this.contactsArray[i];
+                        for (var i = 0; i < contact.messages.length; i++) {
+                            const message=contact.messages[i];
+                            message['menu']=false;
+                        }
+                    };
+        },
         methods:{
 
             // Dichiara di quale contatto mostrare la chat e aggiunge il focus sul'imput nuovo messaggio
@@ -170,15 +178,20 @@ function init() {
 
             // filtra l'array di partenza basandosi sulle lettere inserite nella barra di riscerca
             filteredContactsArray: function () {
-               return this.contactsArray.filter(contact => {
+                return this.contactsArray.filter(contact => {
                    return contact.name.toUpperCase().includes(this.searchedName.toUpperCase());
                });
            },
 
            // mostra il menù dei messaggi
            showMenu: function (message) {
+                message['menu'] = !message['menu'];
+           },
+           closeMenu:function () {
+               console.log('hello');
+           },
+           deleteMsg: function (message) {
 
-                message['menu']= !message['menu'];
            }
         }
     });

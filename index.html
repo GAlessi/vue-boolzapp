@@ -30,7 +30,7 @@
                 </div>
                 <!-- Lista contatti -->
                 <ul class="contacts">
-                    <li v-for="(contact, ind) in filteredContactsArray()" class="contact" @click="getContact(ind)">
+                    <li v-for="(contact, ind) in filteredContactsArray()" class="contact" @click="getContact(ind)" :class="(activeContact == contact) ? 'active' : ''">
                         <img :src="'img/'+ contact.avatar + '.png'" :alt="'Immagine di ' + contact.name">
                         <div class="contactInfo">
                             <h3>{{contact.name}}</h3>
@@ -48,7 +48,7 @@
             <div class="colConversation">
 
                 <!-- Contenuto chat mostrato una volta selezionato un contatto -->
-                <template v-if="activeContact">
+                <template v-if="activeContact" @click="closeMenu()">
                     <div class="contactConversation">
                         <div>
                             <img :src="'img/'+ activeContact.avatar + '.png'" :alt="'Immagine di ' + activeContact.name">
@@ -72,7 +72,7 @@
                                 <i class="fas fa-chevron-down down" @click="showMenu(message)">
                                     <div :class="(message.menu) ? 'show ': ''" class="menu">
                                         <span>Message Info</span>
-                                        <span>Delete message</span>
+                                        <span @click="deleteMsg(message)">Delete message</span>
                                     </div>
                                 </i>
                             </span>
@@ -83,7 +83,7 @@
                     <div class="inputContainer">
                         <i class="fas fa-smile"></i>
                         <i class="fas fa-paperclip"></i>
-                        <input type="text" placeholder="Scrivi messaggio" v-model="myText" @keyup.enter="sendText" ref="newMsg">
+                        <input type="textarea" rows="1" cols="10" placeholder="Scrivi messaggio" v-model="myText" @keyup.enter="sendText" ref="newMsg">
                         <i class="fas fa-microphone"></i>
                     </div>
                 </template>

@@ -160,6 +160,9 @@ input:focus{
 
 .colConversation .conversation .msg>span{
     border-radius: 30px;
+    display: inline-block;
+    max-width: 80%;
+    word-break: break-word;
 }
 
 /* Menù per eliminazione messaggio */
@@ -218,6 +221,10 @@ align-items: center;
 }
 
 /* classi per vue */
+.active{
+    background-color: lightgrey;
+}
+
 .received{
     background-color: rgba(255,255,255,0.7);
     float: left;
@@ -234,6 +241,6 @@ align-items: center;
     position: relative;
 }
 
-.colConversation .msg .down .menu.show{
-    display: block;
+.menu.show{
+    display: block !important;
 }
