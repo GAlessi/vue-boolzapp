@@ -19,28 +19,24 @@ function init() {
                             time: '15:30:55',
                             text: 'Ehi V, hai visto la mia nuova braindance?',
                             status: 'received',
-                            menu: false
                         },
                         {
                             date: '10/01/2020',
                             time: '15:50:00',
                             text: 'Ricordati di mangiare oggi',
                             status: 'received',
-                            menu: false
                         },
                         {
                             date: '10/01/2020',
                             time: '16:15:22',
                             text: 'Già fatto, è un capolavoro!',
                             status: 'sent',
-                            menu: false
                         },
                         {
                             date: '10/01/2020',
                             time: '16:15:22',
                             text: 'come sempre...',
                             status: 'sent',
-                            menu: false
                         }
                     ],
                 },
@@ -128,12 +124,13 @@ function init() {
             ]
         },
         mounted: function () {
-                    for (var i = 0; i < this.contactsArray.length; i++) {
+                    for (let i = 0; i < this.contactsArray.length; i++) {
                         const contact=this.contactsArray[i];
-                        for (var i = 0; i < contact.messages.length; i++) {
-                            const message=contact.messages[i];
-                            message['menu']=false;
+                        for (let x = 0; x < contact.messages.length; x++) {
+                            const message=contact.messages[x];
+                            message['menu']= false;
                         }
+                        console.log(this.contactsArray);
                     };
         },
         methods:{
@@ -183,13 +180,18 @@ function init() {
                });
            },
 
-           // mostra il menù dei messaggi
+           // mostra/nasconde il menù dei messaggi con click su chevron
            showMenu: function (message) {
-                message['menu'] = !message['menu'];
+               message.menu = !message.menu;
+               console.log(message);
            },
+
+           //chiude il dropdown con click esterno
            closeMenu:function () {
                console.log('hello');
            },
+
+           //elimina il messaggio
            deleteMsg: function (ind) {
                this.activeContact.messages.splice(ind, 1);
            }
