@@ -3,6 +3,7 @@ function init() {
         el:"#app",
 
         data:{
+            
             'searchedName': "",
             'myText': "",
             'newMessage':{text:'', status:'sent', time:'', menu:false},
@@ -117,7 +118,8 @@ function init() {
                             date: '10/01/2020',
                             time: '15:50:00',
                             text: 'Si, ma preferirei andare al cinema',
-                            status: 'received'
+                            status: 'received',
+                            menu: false
                         }
                     ],
                 },
@@ -128,7 +130,7 @@ function init() {
                         const contact=this.contactsArray[i];
                         for (let x = 0; x < contact.messages.length; x++) {
                             const message=contact.messages[x];
-                            message['menu']= false;
+                            message['menu'] = false;
                         }
                         console.log(this.contactsArray);
                     };
