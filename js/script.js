@@ -190,8 +190,8 @@ function init() {
            closeMenu:function () {
                console.log('hello');
            },
-           deleteMsg: function (message) {
-
+           deleteMsg: function (ind) {
+               this.activeContact.messages.splice(ind, 1);
            }
         }
     });

@@ -65,14 +65,14 @@
 
                     <!-- Box con chat effettiva -->
                     <div class="conversation">
-                        <div v-for="message in activeContact.messages" class="msg" >
+                        <div v-for="(message, ind) in activeContact.messages" class="msg" >
                             <span :class="(message.status == 'sent') ? 'sent' : 'received'">
                                 {{message.text}}
                                 <span class="msgTime">{{message.time.slice(0,5)}}</span>
                                 <i class="fas fa-chevron-down down" @click="showMenu(message)">
                                     <div :class="(message.menu) ? 'show ': ''" class="menu">
                                         <span>Message Info</span>
-                                        <span @click="deleteMsg(message)">Delete message</span>
+                                        <span @click="deleteMsg(ind)">Delete message</span>
                                     </div>
                                 </i>
                             </span>
