@@ -154,27 +154,27 @@ input:focus{
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    overflow-y: scroll;
+    /* justify-content: flex-end; */
+    overflow-y: auto;
 }
 
 .colConversation .conversation .msg{
-    padding: 10px;
+    margin: 10px 0;
 }
 
 .colConversation .conversation .msg>span{
     border-radius: 30px;
-    display: inline-block;
+    display: flex;
     max-width: 80%;
     word-break: break-word;
 }
 
 /* Menù per eliminazione messaggio */
-.colConversation .msg .msgTime{
+.colConversation .msg .msgOptions{
     position: absolute;
-    right: 25px;
-    bottom: 5px;
-    font-size: 12px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
 }
 
 .colConversation .msg .down{
@@ -185,7 +185,7 @@ input:focus{
     cursor: pointer;
 }
 
-.colConversation .msg .down .menu{
+.colConversation .msg .menu{
     display: none;
     position: absolute;
     z-index: 900;
@@ -194,12 +194,20 @@ input:focus{
     border: 1px solid black;
 }
 
-.colConversation .msg .sent .down .menu{
+.colConversation .msg .sent .menu{
     top: 20px;
     right: 10px;
 }
 
-.colConversation .msg .received .down .menu{
+.colConversation .msg .msgTime{
+    position: relative;
+    top: 15px;
+    right: 15px;
+    font-size: 12px;
+}
+
+.colConversation .msg .received .menu{
+    position: absolute;
     top: 20px;
     left: 10px;
 }
@@ -220,11 +228,13 @@ input:focus{
 height: 70px;
 display: flex;
 align-items: center;
+padding: 0 20px;
 }
 
 .colConversation .inputContainer i{
     font-size: 20px;
     margin: 0 5px;
+    cursor: pointer;
 }
 
 .colConversation .inputContainer input{
@@ -250,7 +260,7 @@ align-items: center;
 }
 
 .received, .sent{
-    padding: 15px 60px 15px 15px;
+    padding: 20px 60px 20px 15px;
     position: relative;
 }
 

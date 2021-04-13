@@ -70,17 +70,18 @@
                     </div>
 
                     <!-- Box con chat effettiva -->
-                    <div class="conversation" @click="closeMenu">
+                    <div class="conversation" @click="closeMenu" id="chat">
                         <div v-for="(message, ind) in activeContact.messages" class="msg" >
-                            <span :class="(message.status == 'sent') ? 'sent' : 'received'" @mouseenter="toggleChevron" @mouseleave="toggleChevron">
+                            <span :class="(message.status == 'sent') ? 'sent' : 'received'" @mouseenter="toggleChevron(message)" @mouseleave="toggleChevron(message)">
                                 {{message.text}}
-                                <span class="msgTime">{{message.time.slice(0,5)}}</span>
-                                <i v-if="chevron" class="fas fa-chevron-down down" @click="toggleMenu(message)" @click.stop>
+                                <div class="msgOptions">
+                                    <i v-if="message.chevron" class="fas fa-chevron-down down" @click="toggleMenu(message)" @click.stop></i>
                                     <div :class="(message.menu) ? 'show': ''" class="menu">
                                         <span>Message Info</span>
                                         <span @click="deleteMsg(ind)" @click.stop>Delete message</span>
                                     </div>
-                                </i>
+                                    <span v-if="!message.chevron" class="msgTime">{{message.time.slice(0,5)}}</span>
+                                </div>
                             </span>
                         </div>
                     </div>
@@ -90,7 +91,8 @@
                         <i class="fas fa-smile"></i>
                         <i class="fas fa-paperclip"></i>
                         <input type="textarea" rows="1" cols="10" placeholder="Scrivi messaggio" v-model="myText" @keyup.enter="sendText" ref="newMsg">
-                        <i class="fas fa-microphone"></i>
+                        <i v-if="myText.length == 0" class="fas fa-microphone"></i>
+                        <i v-else class="far fa-paper-plane" @click="sendText"></i>
                     </div>
                 </template>
 
