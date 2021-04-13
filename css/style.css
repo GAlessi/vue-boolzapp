@@ -83,7 +83,7 @@ input:focus{
 .colContacts .contacts .contact{
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 10px 25px 10px 10px;
     border-bottom: 1px solid darkgrey;
 }
 .colContacts .contacts .contact:hover{
@@ -98,6 +98,10 @@ input:focus{
 
 .colContacts .contacts .contact .contactInfo{
     flex-grow: 1;
+}
+
+.colContacts .contacts .contactInfo .msgPreview{
+    color: rgb(100,100,100);
 }
 
 .colContacts .contactInfo .noMsg{
@@ -162,7 +166,7 @@ input:focus{
 }
 
 .colConversation .conversation .msg{
-    margin: 10px 0;
+    margin: 2px 0;
 }
 
 .colConversation .conversation .msg>span{
@@ -200,12 +204,13 @@ input:focus{
 .colConversation .msg .sent .menu{
     top: 20px;
     right: 10px;
+    cursor: pointer;
 }
 
 .colConversation .msg .msgTime{
     position: relative;
-    top: 15px;
-    right: 15px;
+    top: 10px;
+    right: 10px;
     font-size: 12px;
 }
 
@@ -213,6 +218,7 @@ input:focus{
     position: absolute;
     top: 20px;
     left: 10px;
+    cursor: pointer;
 }
 
 .colConversation .menu >span{
@@ -263,7 +269,7 @@ padding: 0 20px;
 }
 
 .received, .sent{
-    padding: 20px 60px 20px 15px;
+    padding: 10px 60px 10px 10px;
     position: relative;
 }
 
