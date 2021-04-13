@@ -195,18 +195,8 @@ function init() {
 
            // mostra/nasconde il menù dei messaggi con click su chevron
            toggleMenu: function (message) {
-               let msg="";
-               for (let i = 0; i < this.activeContact.messages.length; i++) {
-                    msg = this.activeContact.messages[i].menu;
-                       msg=false
-               };
-
-               if (message.menu && !msg) {
-                   message.menu = false;
-               }else {
-                   message.menu=true;
-               }
-           },
+                   message.menu=!message.menu;
+            },
 
            //chiude il dropdown con click esterno
            closeMenu: function () {

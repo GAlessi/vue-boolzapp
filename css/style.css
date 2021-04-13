@@ -196,7 +196,7 @@ input:focus{
     display: none;
     position: absolute;
     z-index: 900;
-    width: 180px;
+    width: 140px;
     background-color: white;
     border: 1px solid black;
 }
