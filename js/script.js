@@ -154,7 +154,7 @@ function init() {
             ]
         },
         updated() {
-            var container = this.$el.querySelector("#chat");
+            const container = this.$el.querySelector("#chat");
             container.scrollTop = container.scrollHeight;
         },
         // mounted: function () {

@@ -154,8 +154,11 @@ input:focus{
     padding: 20px;
     display: flex;
     flex-direction: column;
-    /* justify-content: flex-end; */
     overflow-y: auto;
+}
+
+.colConversation .conversation div:first-child{
+    margin-top: auto;
 }
 
 .colConversation .conversation .msg{
