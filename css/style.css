@@ -100,6 +100,10 @@ input:focus{
     flex-grow: 1;
 }
 
+.colContacts .contactInfo .noMsg{
+    color: red;
+}
+
 /* Colonna con Chat */
 .colConversation{
     flex-grow: 1;
@@ -151,7 +155,7 @@ input:focus{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .colConversation .conversation .msg{
@@ -185,17 +189,26 @@ input:focus{
     display: none;
     position: absolute;
     z-index: 900;
-    top: 20px;
-    right: 0;
     width: 180px;
     background-color: white;
     border: 1px solid black;
+}
+
+.colConversation .msg .sent .down .menu{
+    top: 20px;
+    right: 10px;
+}
+
+.colConversation .msg .received .down .menu{
+    top: 20px;
+    left: 10px;
 }
 
 .colConversation .menu >span{
     display: inline-block;
     width: 100%;
     padding: 20px;
+    font-size: 15px;
 }
 
 .colConversation .menu >span:hover{

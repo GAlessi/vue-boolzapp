@@ -34,13 +34,19 @@
                         <img :src="'img/'+ contact.avatar + '.png'" :alt="'Immagine di ' + contact.name">
                         <div class="contactInfo">
                             <h3>{{contact.name}}</h3>
-                            <span>{{contact.messages[contact.messages.length - 1].text.slice(0,25)}} </span>
-                            <span v-if="contact.messages[contact.messages.length - 1].text.length > 25">...</span>
+                            <div v-if="contact['messages'].length > 0">
+                                <span >{{contact.messages[contact.messages.length - 1].text.slice(0,25)}} </span>
+                                <span v-if="contact.messages[contact.messages.length - 1].text.length > 25">...</span>
+                            </div>
+                            <div v-else>
+                                <span class="noMsg">Non ci sono messaggi in questa chat</span>
+                            </div>
                         </div>
                         <div class="timeLastMsg">
-                            <span>{{contact.messages[contact.messages.length -1].time.slice(0,5)}}</span>
+                            <span v-if="contact['messages'].length > 0">{{contact.messages[contact.messages.length -1].time.slice(0,5)}}</span>
                         </div>
                     </li>
+
                 </ul>
             </div>
 
@@ -48,7 +54,7 @@
             <div class="colConversation">
 
                 <!-- Contenuto chat mostrato una volta selezionato un contatto -->
-                <template v-if="activeContact" @click="closeMenu()">
+                <template v-if="activeContact">
                     <div class="contactConversation">
                         <div>
                             <img :src="'img/'+ activeContact.avatar + '.png'" :alt="'Immagine di ' + activeContact.name">
@@ -64,15 +70,15 @@
                     </div>
 
                     <!-- Box con chat effettiva -->
-                    <div class="conversation">
+                    <div class="conversation" @click="closeMenu">
                         <div v-for="(message, ind) in activeContact.messages" class="msg" >
-                            <span :class="(message.status == 'sent') ? 'sent' : 'received'">
+                            <span :class="(message.status == 'sent') ? 'sent' : 'received'" @mouseenter="toggleChevron" @mouseleave="toggleChevron">
                                 {{message.text}}
                                 <span class="msgTime">{{message.time.slice(0,5)}}</span>
-                                <i class="fas fa-chevron-down down" @click="showMenu(message)">
+                                <i v-if="chevron" class="fas fa-chevron-down down" @click="toggleMenu(message)" @click.stop>
                                     <div :class="(message.menu) ? 'show': ''" class="menu">
                                         <span>Message Info</span>
-                                        <span @click="deleteMsg(ind)">Delete message</span>
+                                        <span @click="deleteMsg(ind)" @click.stop>Delete message</span>
                                     </div>
                                 </i>
                             </span>
