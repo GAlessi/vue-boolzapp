@@ -141,7 +141,6 @@ function init() {
                             Vue.set(message, 'chevron', false);
                         }
                     };
-                    console.log(this.contactsArray);
         },
         methods:{
 
@@ -195,7 +194,10 @@ function init() {
 
            // mostra/nasconde il menù dei messaggi con click su chevron
            toggleMenu: function (message) {
-                   message.menu=!message.menu;
+               if (!message.menu) {
+                   this.closeMenu();
+               };
+               message.menu=!message.menu;
             },
 
            //chiude il dropdown con click esterno
