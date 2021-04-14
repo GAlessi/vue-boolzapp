@@ -281,6 +281,6 @@ input:focus, textarea:focus{
     position: relative;
 }
 
-.menu.show{
-    display: block !important;
+.colConversation .msg .menu.show{
+    display: block;
 }
