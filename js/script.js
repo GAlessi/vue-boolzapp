@@ -6,8 +6,8 @@ function init() {
             "chevron": false,
             'searchedName': "",
             'myText': "",
-            'newMessage':{text:'', status:'sent', time:'', menu:false, chevron:false},
-            'newAnswer':{text:'ok', status:'received', time:'', menu:false, chevron:false},
+            'newMessage':{text:'', status:'sent', time:'', date:'Oggi', menu:false, chevron:false},
+            'newAnswer':{text:'ok', status:'received', time:'', date:'Oggi', menu:false, chevron:false},
             'activeContact': false,
             'contactsArray': [
                 {
@@ -19,25 +19,25 @@ function init() {
                             date: '10/01/2020',
                             time: '15:30:55',
                             text: 'Ehi V, hai visto la mia nuova braindance?',
-                            status: 'received',
+                            status: 'received'
                         },
                         {
                             date: '10/01/2020',
                             time: '15:50:00',
                             text: 'Ricordati di mangiare oggi',
-                            status: 'received',
+                            status: 'received'
                         },
                         {
                             date: '10/01/2020',
                             time: '16:15:22',
-                            text: 'Già fatto, è un capolavoro!',
-                            status: 'sent',
+                            text: 'Appena fatto. La BD è un capolavoro!',
+                            status: 'sent'
                         },
                         {
                             date: '10/01/2020',
                             time: '16:15:22',
                             text: 'come sempre...',
-                            status: 'sent',
+                            status: 'sent'
                         }
                     ],
                 },
@@ -50,19 +50,19 @@ function init() {
                             date: '20/03/2020',
                             time: '16:30:00',
                             text: 'Ciao choom, come stai?',
-                            status: 'sent',
+                            status: 'sent'
                         },
                         {
                             date: '20/03/2020',
                             time: '16:30:55',
                             text: "Bene grazie! Stasera ci vediamo all'Alterlife?",
-                            status: 'received',
+                            status: 'received'
                         },
                         {
                             date: '20/03/2020',
                             time: '16:35:00',
                             text: 'Mi piacerebbe ma devo vedere Judy',
-                            status: 'sent',
+                            status: 'sent'
                         }
                     ],
                 },
@@ -75,31 +75,31 @@ function init() {
                             date: '28/03/2020',
                             time: '10:10:40',
                             text: 'Devo fare sparire il mio ottavo marito',
-                            status: 'received',
+                            status: 'received'
                         },
                         {
                             date: '28/03/2020',
                             time: '10:20:10',
                             text: 'Sicura di non aver sbagliato chat?',
-                            status: 'sent',
+                            status: 'sent'
                         },
                         {
                             date: '28/03/2020',
                             time: '16:15:22',
                             text: 'Ah',
-                            status: 'received',
+                            status: 'received'
                         },
                         {
                             date: '28/03/2020',
-                            time: '16:15:22',
+                            time: '16:16:22',
                             text: 'dimentica tutto, V',
-                            status: 'received',
+                            status: 'received'
                         },
                         {
                             date: '28/03/2020',
-                            time: '16:15:22',
+                            time: '16:20:22',
                             text: 'sul serio V, dimentica tutto',
-                            status: 'received',
+                            status: 'received'
                         }
                     ]
                 },
@@ -112,14 +112,20 @@ function init() {
                             date: '10/01/2020',
                             time: '15:30:55',
                             text: 'Lo sai che ha aperto una nuova pizzeria?',
-                            status: 'sent',
+                            status: 'sent'
 
                         },
                         {
                             date: '10/01/2020',
                             time: '15:50:00',
-                            text: 'Si, ma preferirei andare al cinema',
-                            status: 'received',
+                            text: 'Si, possiamo passarci dopo aver attacco quel convoglio della Miltech',
+                            status: 'received'
+                        },
+                        {
+                            date: '10/01/2020',
+                            time: '15:51:00',
+                            text: 'Lo sai che lavorare mi mette sempre fame!',
+                            status: 'received'
                         }
                     ],
                 },
@@ -205,7 +211,7 @@ function init() {
                 this.activeContact.messages.forEach(elem => {
                     if (elem.menu) {
                         elem.menu = false;
-                    }
+                    };
                 });
             },
 
@@ -223,6 +229,11 @@ function init() {
             hideChevron:function (message) {
                 message.chevron = false;
             },
+
+            //mostra le informazioni sul messaggio
+            showInfo: function (message) {
+                alert(`Data invio: ${message.date}, alle ${message.time}.`)
+            }
         }
     });
 }

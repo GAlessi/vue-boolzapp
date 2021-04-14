@@ -14,7 +14,7 @@
     justify-content: center;
 }
 
-input:focus{
+input:focus, textarea:focus{
     outline: none;
 }
 
@@ -59,7 +59,7 @@ input:focus{
     position: relative;
 }
 
-.colContacts .search input, .colConversation .inputContainer input{
+.colContacts .search input, .colConversation .inputContainer textarea{
     width: 100%;
     border-radius: 50px;
     line-height: 35px;
@@ -246,10 +246,13 @@ padding: 0 20px;
     cursor: pointer;
 }
 
-.colConversation .inputContainer input{
+.colConversation .inputContainer textarea{
     flex-grow: 1;
     margin: 0 5px;
-    padding: 0 20px;
+    padding: 10px 20px;
+    line-height: normal;
+    resize: none;
+    overflow-y: hidden;
 }
 
 /* classi per vue */

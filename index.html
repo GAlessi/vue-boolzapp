@@ -77,7 +77,7 @@
                                 <div class="msgOptions">
                                     <i v-if="message.chevron" class="fas fa-chevron-down down" @click="toggleMenu(message)" @click.stop></i>
                                     <div :class="(message.menu) ? 'show': ''" class="menu">
-                                        <span>Message Info</span>
+                                        <span @click="showInfo(message)">Message Info</span>
                                         <span @click="deleteMsg(ind)" @click.stop>Delete message</span>
                                     </div>
                                     <span v-if="!message.chevron" class="msgTime">{{message.time.slice(0,5)}}</span>
@@ -90,7 +90,7 @@
                     <div class="inputContainer">
                         <i class="fas fa-smile"></i>
                         <i class="fas fa-paperclip"></i>
-                        <input type="textarea" rows="1" cols="10" placeholder="Scrivi messaggio" v-model="myText" @keyup.enter="sendText" ref="newMsg">
+                        <textarea v-model="myText" :rows="(myText.length < 100) ? '1' : '2'" placeholder="Scrivi messaggio" @keyup.enter="sendText" ref="newMsg"></textarea>
                         <i v-if="myText.length == 0" class="fas fa-microphone"></i>
                         <i v-else class="far fa-paper-plane" @click="sendText"></i>
                     </div>
