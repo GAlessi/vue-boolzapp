@@ -24,7 +24,7 @@ input:focus, textarea:focus{
     width: 30%;
     height: 100vh;
     background-color: white;
-    border-right: 1px solid darkgrey;
+    border-right: 1px solid #8080804f;
 }
 
 /* Barre superiori */
@@ -84,7 +84,7 @@ input:focus, textarea:focus{
     display: flex;
     align-items: center;
     padding: 10px 25px 10px 10px;
-    border-bottom: 1px solid darkgrey;
+    border-bottom: 1px solid #8080804f;
 }
 .colContacts .contacts .contact:hover{
     background-color: lightgrey;
@@ -170,7 +170,7 @@ input:focus, textarea:focus{
 }
 
 .colConversation .conversation .msg>span{
-    border-radius: 30px;
+    border-radius: 10px;
     display: flex;
     max-width: 80%;
     word-break: break-word;
@@ -197,8 +197,10 @@ input:focus, textarea:focus{
     position: absolute;
     z-index: 900;
     width: 140px;
-    background-color: white;
-    border: 1px solid black;
+    background-color: rgb(255,255,255);
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 1);
 }
 
 .colConversation .msg .sent .menu{
@@ -253,6 +255,7 @@ input:focus, textarea:focus{
     line-height: normal;
     resize: none;
     overflow-y: hidden;
+    text-transform: capitalize;
 }
 
 /* classi per vue */

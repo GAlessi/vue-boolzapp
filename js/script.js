@@ -7,7 +7,7 @@ function init() {
             'searchedName': "",
             'myText': "",
             'newMessage':{text:'', status:'sent', time:'', date:'Oggi', menu:false, chevron:false},
-            'newAnswer':{text:'ok', status:'received', time:'', date:'Oggi', menu:false, chevron:false},
+            'newAnswer':{text:'Ok', status:'received', time:'', date:'Oggi', menu:false, chevron:false},
             'activeContact': false,
             'contactsArray': [
                 {
@@ -36,7 +36,7 @@ function init() {
                         {
                             date: '10/01/2020',
                             time: '16:15:22',
-                            text: 'come sempre...',
+                            text: 'Come sempre...',
                             status: 'sent'
                         }
                     ],
@@ -92,13 +92,13 @@ function init() {
                         {
                             date: '28/03/2020',
                             time: '16:16:22',
-                            text: 'dimentica tutto, V',
+                            text: 'Dimentica tutto, V',
                             status: 'received'
                         },
                         {
                             date: '28/03/2020',
                             time: '16:20:22',
-                            text: 'sul serio V, dimentica tutto',
+                            text: 'Sul serio V, dimentica tutto',
                             status: 'received'
                         }
                     ]
