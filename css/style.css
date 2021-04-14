@@ -147,7 +147,7 @@ input:focus, textarea:focus{
     margin: 0 10px;
 }
 
-.contactConversation .options i:hover{
+.contactConversation .options i:hover, .search i:hover{
     cursor: pointer;
 }
 
@@ -234,10 +234,10 @@ input:focus, textarea:focus{
 
 /* Barra di input della chat */
 .colConversation .inputContainer{
-height: 70px;
-display: flex;
-align-items: center;
-padding: 0 20px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .colConversation .inputContainer i{
@@ -269,6 +269,7 @@ padding: 0 20px;
 .sent{
     background-color: rgba(229,255,191,0.7);
     float: right;
+    position: relative;
 }
 
 .received, .sent{

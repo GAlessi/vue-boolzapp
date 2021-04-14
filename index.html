@@ -26,7 +26,8 @@
                 <!-- barra di ricerca contatti -->
                 <div class="search">
                     <input type="text" placeholder="cerca o inizia una nuova chat" v-model="searchedName">
-                    <i class="fas fa-search"></i>
+                    <i v-if="searchedName.length > 0"class="fas fa-arrow-circle-left" @click="clearSearch"></i>
+                    <i v-else class="fas fa-search"></i>
                 </div>
                 <!-- Lista contatti -->
                 <ul class="contacts">

@@ -233,7 +233,12 @@ function init() {
             //mostra le informazioni sul messaggio
             showInfo: function (message) {
                 alert(`Data invio: ${message.date}, alle ${message.time}.`)
-            }
+            },
+
+            //ripulisce la barra searchedName
+            clearSearch: function () {
+                this.searchedName = '';
+            },
         }
     });
 }
