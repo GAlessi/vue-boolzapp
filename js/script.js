@@ -6,8 +6,8 @@ function init() {
             "chevron": false,
             'searchedName': "",
             'myText': "",
-            'newMessage':{text:'', status:'sent', time:'', date:'Oggi', menu:false, chevron:false},
-            'newAnswer':{text:'Ok', status:'received', time:'', date:'Oggi', menu:false, chevron:false},
+            'newMessage':{text:'', status:'sent', time:'', date:'Oggi', menu:false},
+            'newAnswer':{text:'Ok', status:'received', time:'', date:'Oggi', menu:false},
             'activeContact': false,
             'contactsArray': [
                 {
@@ -144,7 +144,6 @@ function init() {
                         for (let x = 0; x < contact.messages.length; x++) {
                             const message=contact.messages[x];
                             Vue.set(message, 'menu', false);
-                            Vue.set(message, 'chevron', false);
                         }
                     };
         },
@@ -218,16 +217,6 @@ function init() {
             //elimina il messaggio
             deleteMsg: function (ind) {
                 this.activeContact.messages.splice(ind, 1);
-            },
-
-            //mostra lo chevron a hover sul messaggio
-            showChevron:function (message) {
-                message.chevron = true;
-            },
-
-            //nasconde lo chevron e mostra la data
-            hideChevron:function (message) {
-                message.chevron = false;
             },
 
             //mostra le informazioni sul messaggio

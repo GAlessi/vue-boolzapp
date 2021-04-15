@@ -36,7 +36,7 @@
                         <div class="contactInfo">
                             <h3>{{contact.name}}</h3>
                             <div v-if="contact['messages'].length > 0">
-                                <span class="msgPreview">{{contact.messages[contact.messages.length - 1].text.slice(0,25)}} </span>
+                                <span class="msgPreview">{{contact.messages[contact.messages.length - 1].text.slice(0,25)}}</span>
                                 <span v-if="contact.messages[contact.messages.length - 1].text.length > 25">...</span>
                             </div>
                             <div v-else>
@@ -73,15 +73,15 @@
                     <!-- Box con chat effettiva -->
                     <div class="conversation" @click="closeMenu" id="chat">
                         <div v-for="(message, ind) in activeContact.messages" class="msg" >
-                            <span :class="(message.status == 'sent') ? 'sent' : 'received'" @mouseenter="showChevron(message)" @mouseleave="hideChevron(message)">
+                            <span :class="(message.status == 'sent') ? 'sent' : 'received'">
                                 {{message.text}}
                                 <div class="msgOptions">
-                                    <i v-if="message.chevron" class="fas fa-chevron-down down" @click="toggleMenu(message)" @click.stop></i>
+                                    <i  class="fas fa-chevron-down down" @click="toggleMenu(message)" @click.stop></i>
                                     <div :class="(message.menu) ? 'show': ''" class="menu">
                                         <span @click="showInfo(message)">Message Info</span>
                                         <span @click="deleteMsg(ind)" @click.stop>Delete message</span>
                                     </div>
-                                    <span v-if="!message.chevron" class="msgTime">{{message.time.slice(0,5)}}</span>
+                                    <span  class="msgTime">{{message.time.slice(0,5)}}</span>
                                 </div>
                             </span>
                         </div>

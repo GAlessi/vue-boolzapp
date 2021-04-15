@@ -187,6 +187,7 @@ input:focus, textarea:focus{
 }
 
 .colConversation .msg .down{
+    display: none;
     position: absolute;
     right: 12px;
     bottom: 15px;
@@ -279,6 +280,14 @@ input:focus, textarea:focus{
 .received, .sent{
     padding: 10px 60px 10px 10px;
     position: relative;
+}
+
+.received:hover .msgTime, .sent:hover .msgTime{
+    display: none;
+}
+
+.received:hover .down, .sent:hover .down{
+    display: block;
 }
 
 .colConversation .msg .menu.show{
