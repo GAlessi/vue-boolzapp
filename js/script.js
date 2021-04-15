@@ -231,15 +231,26 @@ function init() {
         },
         filters: {
 
-            //accorcia l'ultimo mostrato mostrato sotto il contatto
+            //accorcia l'ultimo messaggio mostrato sotto il contatto
             cutMsg: function (contact) {
-                if (contact.messages[contact.messages.length - 1].text.length > 25) {
-                    return contact.messages[contact.messages.length - 1].text.slice(0,25) + "..."
-                }else {
-                    return contact.messages[contact.messages.length - 1].text.slice(0,25)
+                if (contact['messages'].length > 0) {
+                    if (contact.messages[contact.messages.length - 1].text.length > 25) {
+                        return contact.messages[contact.messages.length - 1].text.slice(0,25) + "..."
+                    }else {
+                        return contact.messages[contact.messages.length - 1].text.slice(0,25)
+                    }
+                }else{
+                    return "Non ci sono messaggi"
                 }
+            },
+
+            //taglia il tempo in formato hh:mm
+            cutTime:function (contact) {
+                if (contact['messages'].length > 0) {
+                    return contact.messages[contact.messages.length -1].time.slice(0,5);
+                }
+            }
         }
-}
     });
 }
 

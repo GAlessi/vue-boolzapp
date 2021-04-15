@@ -35,15 +35,12 @@
                         <img :src="'img/'+ contact.avatar + '.png'" :alt="'Immagine di ' + contact.name">
                         <div class="contactInfo">
                             <h3>{{contact.name}}</h3>
-                            <div v-if="contact['messages'].length > 0">
+                            <div>
                                 <span class="msgPreview">{{ contact | cutMsg }}</span>
-                            </div>
-                            <div v-else>
-                                <span class="noMsg">Non ci sono messaggi in questa chat</span>
                             </div>
                         </div>
                         <div class="timeLastMsg">
-                            <span v-if="contact['messages'].length > 0">{{contact.messages[contact.messages.length -1].time.slice(0,5)}}</span>
+                            <span>{{ contact | cutTime }}</span>
                         </div>
                     </li>
 
