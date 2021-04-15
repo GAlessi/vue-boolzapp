@@ -36,8 +36,7 @@
                         <div class="contactInfo">
                             <h3>{{contact.name}}</h3>
                             <div v-if="contact['messages'].length > 0">
-                                <span class="msgPreview">{{contact.messages[contact.messages.length - 1].text.slice(0,25)}}</span>
-                                <span v-if="contact.messages[contact.messages.length - 1].text.length > 25">...</span>
+                                <span class="msgPreview">{{ contact | cutMsg }}</span>
                             </div>
                             <div v-else>
                                 <span class="noMsg">Non ci sono messaggi in questa chat</span>

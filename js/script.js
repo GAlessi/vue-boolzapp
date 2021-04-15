@@ -228,7 +228,18 @@ function init() {
             clearSearch: function () {
                 this.searchedName = '';
             },
+        },
+        filters: {
+
+            //accorcia l'ultimo mostrato mostrato sotto il contatto
+            cutMsg: function (contact) {
+                if (contact.messages[contact.messages.length - 1].text.length > 25) {
+                    return contact.messages[contact.messages.length - 1].text.slice(0,25) + "..."
+                }else {
+                    return contact.messages[contact.messages.length - 1].text.slice(0,25)
+                }
         }
+}
     });
 }
 
